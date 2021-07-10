@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="nobel.dhar.itmdicus.ui.registration.RegistrationViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.registration.RegistrationFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:src="@drawable/ic_logo"
+                android:text="Hello" />
+
+            <ImageView
+                android:id="@+id/create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/create_account" />
+
+            <LinearLayout
+                android:id="@+id/et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create"
+                android:layout_margin="@dimen/_30sdp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/create"
+                    android:textColorHint="@color/green"
+                    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                    app:boxStrokeColor="@color/grey"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/green">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.name}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/create"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColorHint="@color/green"
+                    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                    app:boxStrokeColor="@color/grey"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/green">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Email Address"
+                        android:inputType="textEmailAddress"
+                        android:text="@={viewModel.email}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/create"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColorHint="@color/green"
+                    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                    app:boxStrokeColor="@color/grey"
+                    app:endIconTint="@color/grey"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/green"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.password}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/create"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColorHint="@color/green"
+                    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                    app:boxStrokeColor="@color/grey"
+                    app:endIconTint="@color/grey"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/green"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Confirm Password"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.cPassword}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_create_acc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/et"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:backgroundTint="@color/green"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:focusable="true"
+                android:onClick="@{() -> viewModel.onRegisterClicked()}"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/create_btn" />
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/btn_alreadyMember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_create_acc"
+                android:layout_margin="@dimen/_30sdp"
+                android:onClick="@{() -> viewModel.onAlreadyMemberClicked()}"
+                android:src="@drawable/login" />
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/pb_register"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </ScrollView>
+</layout>

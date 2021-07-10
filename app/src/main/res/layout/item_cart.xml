@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="cart"
+            type="nobel.dhar.itmdicus.data.local.CartWithProduct" />
+
+        <variable
+            name="listener"
+            type="nobel.dhar.itmdicus.ui.cart.CartAdapterLister" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        bind:cardElevation="0dp"
+        android:elevation="0dp"
+        bind:cardCornerRadius="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/product_image"
+                android:layout_alignParentTop="true"
+                android:id="@+id/image_group"
+                android:layout_alignParentStart="true"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"/>
+            <RelativeLayout
+                android:padding="@dimen/_5sdp"
+                android:id="@+id/dt"
+                android:layout_toEndOf="@id/image_group"
+                android:orientation="vertical"
+                android:layout_toStartOf="@+id/group_details"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_70sdp">
+
+                <TextView
+                    android:layout_alignParentTop="true"
+                    android:text="@{cart.product.company}"
+                    android:id="@+id/company"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_below="@+id/company"
+                    android:layout_above="@+id/price"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/group_name"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:text="@{cart.product.name}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:singleLine="false"
+                    android:maxLines="2"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:id="@+id/price"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_12ssp"
+                    android:text='@{"$"+cart.product.price}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_80sdp">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_add"
+                    android:clickable="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:onClick="@{() -> listener.onAddClicked(cart)}"
+                    bind:cardCornerRadius="@dimen/_5sdp"
+                    android:backgroundTint="@color/grey"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp">
+                    <ImageView
+                        android:layout_margin="@dimen/_4sdp"
+                        android:src="@drawable/ic_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/btn_add"
+                    android:id="@+id/tv_count"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+                    android:layout_above="@+id/bt_minus"
+                    android:text='@{cart.cartTable.countToString}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/bt_minus"
+                    android:clickable="true"
+                    android:layout_alignParentBottom="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="@{() -> listener.onMinusClicked(cart)}"
+                    bind:cardCornerRadius="@dimen/_5sdp"
+                    android:backgroundTint="@color/grey"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp">
+                    <ImageView
+                        android:layout_margin="@dimen/_4sdp"
+                        android:src="@drawable/ic_minus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

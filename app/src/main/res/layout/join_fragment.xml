@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="nobel.dhar.itmdicus.ui.join.JoinViewModel" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/join_back"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.join.JoinFragment">
+
+        <ImageView
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_above="@+id/stay_high"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_logo_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/stay_high"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_above="@+id/bt"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/stay_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/bt"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:onClick="@{()-> viewModel.onJoinClicked()}"
+                android:id="@+id/bt_join"
+                android:textColor="@color/black"
+                android:text="JOIN"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_45sdp"/>
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="0dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                app:strokeColor="@color/white"
+                app:strokeWidth="2dp"
+                android:onClick="@{()-> viewModel.onLoginClicked()}"
+                android:id="@+id/bt_Login"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="Login"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_45sdp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

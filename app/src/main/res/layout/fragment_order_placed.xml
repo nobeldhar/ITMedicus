@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".ui.orderplaced.OrderPlacedFragment">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/circle"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"/>
+        <ImageView
+            android:src="@drawable/tick"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Order Successful"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginTop="@dimen/_30sdp"
+        android:src="@drawable/success_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/btn_continue_shopping"
+        android:focusable="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:src="@drawable/continute_shopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
